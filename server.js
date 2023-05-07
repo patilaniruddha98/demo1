@@ -4,8 +4,7 @@ import dotenv from "dotenv"
 import productRouter from './productRouter.js';
 import cors from 'cors';
 import cert from "./rds-combined-ca-bundle.pem"
-const fs = require('fs');
-
+import fs  from 'fs'
 dotenv.config();
 const app = express();
 app.use(express.json());
