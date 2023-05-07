@@ -14,8 +14,10 @@ app.use(cors({
 }));
 
 // eslint-disable-next-line no-undef
-mongoose.connect(process.env.MNGODB_URL || "mongodb://getmycart:aniruddha@getmycart.cluster-c2jyxsybbctr.ap-south-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=./rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false", {
-    //tlsCAFile: "./rds-combined-ca-bundle.pem",
+mongoose.connect(process.env.MNGODB_URL || "mongodb://getmycart:aniruddha@getmycart.cluster-c2jyxsybbctr.ap-south-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false", {
+    tlsCAFile: "./rds-combined-ca-bundle.pem",
+    tlsAllowInvalidCertificates: true,
+    tlsAllowInvalidHostnames: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
